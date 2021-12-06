@@ -10,4 +10,21 @@ const dataToObjectArray = (rawData) => {
   });
 };
 
-module.exports = { dataToArray, dataToObjectArray };
+const binaryDataToSumsArray = (rawData) => {
+  const binaryArr = rawData.split("\n");
+  const columnSums = binaryArr.reduce((columnSums, binaryNum) => {
+    // Keep track of the sum of each column
+    for (let i = 0; i < binaryNum.length; i++) {
+      if (columnSums[i]) {
+        columnSums[i] += parseInt(binaryNum[i]);
+      } else {
+        columnSums[i] = parseInt(binaryNum[i]);
+      }
+    }
+    return columnSums;
+  }, []);
+  // Use this to compare the sum of each column to length of entire array.  If sum is > 1/2 of array length, there are more 1s.  If not, more 0's.
+  return { arrayLength: binaryArr.length, columnSums: columnSums };
+};
+
+module.exports = { dataToArray, dataToObjectArray, binaryDataToSumsArray };
