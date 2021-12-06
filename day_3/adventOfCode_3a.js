@@ -1,8 +1,6 @@
 const { rawData } = require("./data_raw_3.js");
 const { binaryDataToSumsArray } = require("../utils.js");
 
-// read in data and store values for each column
-
 const epsilonDigit = (gamma) => {
   return gamma === 1 ? 0 : 1;
 };

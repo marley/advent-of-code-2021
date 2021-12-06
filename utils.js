@@ -1,8 +1,9 @@
-// PARSE TEST DATA INTO A JSON
+// 1
 const dataToArray = (rawData) => {
   return rawData.split("\n").map((numberStr) => parseInt(numberStr));
 };
 
+// 2
 const dataToObjectArray = (rawData) => {
   return rawData.split("\n").map((command) => {
     const commandArr = command.split(" ");
@@ -10,6 +11,7 @@ const dataToObjectArray = (rawData) => {
   });
 };
 
+// 3a
 const binaryDataToSumsArray = (rawData) => {
   const binaryArr = rawData.split("\n");
   const columnSums = binaryArr.reduce((columnSums, binaryNum) => {
@@ -27,4 +29,14 @@ const binaryDataToSumsArray = (rawData) => {
   return { arrayLength: binaryArr.length, columnSums: columnSums };
 };
 
-module.exports = { dataToArray, dataToObjectArray, binaryDataToSumsArray };
+// 3b
+const binaryDataToArray = (rawData) => {
+  return rawData.split("\n");
+};
+
+module.exports = {
+  dataToArray,
+  dataToObjectArray,
+  binaryDataToSumsArray,
+  binaryDataToArray,
+};
