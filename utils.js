@@ -34,9 +34,29 @@ const binaryDataToArray = (rawData) => {
   return rawData.split("\n");
 };
 
+// 4a
+const bingoDataToObject = (rawData) => {
+  const allData = rawData.split("\n");
+  const randomDraws = allData[0].split(",");
+  const boards = {}; // {0 : [[1,2,3], [4,5,6]], 1 : [[7,8,9],...], ...}
+  let boardCount = -1;
+  for (const row of allData.splice(1)) {
+    if (row === "") {
+      // next row will start next board
+      boardCount += 1;
+      boards[boardCount] = [];
+    } else {
+      boards[boardCount].push(row.trim().split(/\s+/));
+    }
+  }
+
+  return { randomDraws, boards };
+};
+
 module.exports = {
   dataToArray,
   dataToObjectArray,
   binaryDataToSumsArray,
   binaryDataToArray,
+  bingoDataToObject,
 };
