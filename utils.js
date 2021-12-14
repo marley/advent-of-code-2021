@@ -29,12 +29,12 @@ const binaryDataToSumsArray = (rawData) => {
   return { arrayLength: binaryArr.length, columnSums: columnSums };
 };
 
-// 3b
+// 3b & 5a
 const binaryDataToArray = (rawData) => {
   return rawData.split("\n");
 };
 
-// 4a
+// 4ab
 const bingoDataToObject = (rawData) => {
   const allData = rawData.split("\n");
   const randomDraws = allData[0].split(",");
